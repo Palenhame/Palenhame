@@ -1,89 +1,89 @@
-<div align="center">
-  <h1>Hi there, I'm Palenhame 👋</h1>
-  <p>
-    <strong>Backend Developer & Software Engineer | Go & Python</strong>
-  </p>
-  
-  <p>
-    <a href="https://t.me/I_Nobody69"><img src="https://img.shields.io/badge/Telegram-@I__Nobody69-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white" alt="Telegram" /></a>
-    <a href="mailto:palenhame@gmail.com"><img src="https://img.shields.io/badge/Email-palenhame@gmail.com-EA4335?style=for-the-badge&logo=gmail&logoColor=white" alt="Email" /></a>
-  </p>
-</div>
-
----
-
-### 🌐 About Me / Обо мне
-
-<details open>
-<summary><strong>🇬🇧 English</strong></summary>
-<br/>
-
-Backend engineer focused on building robust, scalable web services, clean REST APIs, and high-performance server-side architectures.
-
-- 🔭 **Focus**: Scalable backend architectures, asynchronous workflows, and concurrent systems in **Go** and **Python**.
-- 🛠️ **Core Stack**: Python (FastAPI, Django), Go, PostgreSQL, Redis, Docker.
-- 💡 **Passionate about**: Clean architecture, database query & indexing optimization, reliable caching, and containerized environments.
-- 📬 **Let's connect**: Feel free to reach out via [Telegram](https://t.me/I_Nobody69) or [Email](mailto:palenhame@gmail.com).
-
-</details>
-
-<details open>
-<summary><strong>🇷🇺 Русский</strong></summary>
-<br/>
-
-Бэкенд-разработчик. Проектирую и создаю надежные серверные решения, производительные API и микросервисную архитектуру.
-
-- 🔭 **Направление**: Разработка масштабируемого бэкенда, асинхронные пайплайны и многопоточные сервисы на **Go** и **Python**.
-- 🛠️ **Основной стек**: Python (FastAPI, Django), Go, PostgreSQL, Redis, Docker.
-- 💡 **Интересы**: Чистая архитектура, оптимизация SQL-запросов и индексов, кэширование и контейнеризация.
-- 📬 **Связь**: Открыт к сотрудничеству и интересным проектам в [Telegram](https://t.me/I_Nobody69) или по [почте](mailto:palenhame@gmail.com).
-
-</details>
-
----
-
-### 🛠️ Tech Stack / Технологический стек
-
-<p align="center">
-  <a href="https://skillicons.dev">
-    <img src="https://skillicons.dev/icons?i=python,go,postgres,redis,docker,linux,git,bash,fastapi,django,nginx" alt="My Skills" />
-  </a>
-</p>
-
-<details>
-<summary><strong>Подробная разбивка технологий / Detailed breakdown</strong></summary>
-<br/>
-
-| Категория | Технологии |
-| :--- | :--- |
-| **Языки** | Python, Go, SQL, Bash |
-| **Бэкенд & Фреймворки** | FastAPI, Django, Asyncio, Gin, SQLAlchemy |
-| **Базы данных & Кэш** | PostgreSQL, Redis, Alembic |
-| **Инфраструктура & DevOps** | Docker, Docker Compose, Linux, Git, Nginx |
-
-</details>
-
----
-
-### 📊 GitHub Analytics / Статистика
+<!-- palenhame@prod:~$ systemctl status engineer -->
 
 <div align="center">
-  <a href="https://github.com/Palenhame">
-    <img src="https://github-stats-extended.vercel.app/api?username=Palenhame&show_icons=true&theme=tokyonight&hide_border=true&count_private=true" alt="Palenhame's GitHub Stats" />
-  </a>
-  <a href="https://github.com/Palenhame">
-    <img src="https://github-stats-extended.vercel.app/api/top-langs/?username=Palenhame&layout=compact&theme=tokyonight&hide_border=true" alt="Top Languages" />
-  </a>
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="./assets/daemon-header-dark.svg" />
+    <source media="(prefers-color-scheme: light)" srcset="./assets/daemon-header-light.svg" />
+    <img alt="palenhame@prod systemctl status" src="./assets/daemon-header-dark.svg" width="100%" />
+  </picture>
 </div>
+
+<br />
+
+### Architecture & Runtime Philosophy
+
+```go
+package prod
+
+import (
+	"context"
+	"time"
+
+	"golang.org/x/sync/errgroup"
+)
+
+// Engineer: concurrency, fast SQL, Redis read-through & isolated Docker containers
+type Engineer struct {
+	Core    string // Go & Python
+	Cache   Cache  // Redis (LRU / Streams)
+	Storage DB     // PostgreSQL (pgx / partitioning)
+	Runtime string // Docker & Linux cgroups
+}
+
+func (e *Engineer) HandleLoad(ctx context.Context, req Request) (Response, error) {
+	if cached, ok := e.Cache.Get(ctx, req.Key()); ok {
+		return cached, nil
+	}
+
+	g, ctx := errgroup.WithContext(ctx)
+	var res Response
+
+	g.Go(func() error {
+		row, err := e.Storage.QueryFast(ctx, req.SQL())
+		if err != nil {
+			return err
+		}
+		res = row
+		return e.Cache.SetAsync(ctx, req.Key(), row, 5*time.Minute)
+	})
+
+	if err := g.Wait(); err != nil {
+		return Response{}, err
+	}
+	return res, nil
+}
+```
 
 <div align="center">
-  <a href="https://github.com/Palenhame">
-    <img src="https://streak-stats.demolab.com/?user=Palenhame&theme=tokyonight&hide_border=true" alt="GitHub Streak" />
-  </a>
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="./assets/architecture-dark.svg" />
+    <source media="(prefers-color-scheme: light)" srcset="./assets/architecture-light.svg" />
+    <img alt="Backend topology diagram" src="./assets/architecture-dark.svg" width="100%" />
+  </picture>
 </div>
 
----
+<br />
+
+### Activity Stream
 
 <div align="center">
-  <sub>⚡ Designed with passion for robust backend systems</sub>
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Palenhame/Palenhame/output/github-contribution-grid-snake-dark.svg" />
+    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/Palenhame/Palenhame/output/github-contribution-grid-snake.svg" />
+    <img alt="GitHub contribution grid snake animation" src="https://raw.githubusercontent.com/Palenhame/Palenhame/output/github-contribution-grid-snake-dark.svg" width="100%" />
+  </picture>
 </div>
+
+<br />
+
+### Endpoints
+
+```bash
+palenhame@prod:~$ ping telegram
+PING telegram.org (@I_Nobody69): 56 data bytes
+64 bytes from @I_Nobody69: icmp_seq=0 ttl=57 time=11.4 ms
+-> https://t.me/I_Nobody69
+
+palenhame@prod:~$ curl -I https://github.com/palenhame
+HTTP/2 200 OK · Backend Systems Architect · 99.98% availability mindset
+```

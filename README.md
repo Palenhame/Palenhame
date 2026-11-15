@@ -69,16 +69,16 @@ Backend engineer focused on building robust, scalable web services, clean REST A
 
 <div align="center">
   <a href="https://github.com/Palenhame">
-    <img src="https://github-readme-stats.vercel.app/api?username=Palenhame&show_icons=true&theme=tokyonight&hide_border=true&count_private=true" alt="Palenhame's GitHub Stats" />
+    <img src="https://github-stats-extended.vercel.app/api?username=Palenhame&show_icons=true&theme=tokyonight&hide_border=true&count_private=true" alt="Palenhame's GitHub Stats" />
   </a>
   <a href="https://github.com/Palenhame">
-    <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Palenhame&layout=compact&theme=tokyonight&hide_border=true" alt="Top Languages" />
+    <img src="https://github-stats-extended.vercel.app/api/top-langs/?username=Palenhame&layout=compact&theme=tokyonight&hide_border=true" alt="Top Languages" />
   </a>
 </div>
 
 <div align="center">
   <a href="https://github.com/Palenhame">
-    <img src="https://github-readme-streak-stats.herokuapp.com/?user=Palenhame&theme=tokyonight&hide_border=true" alt="GitHub Streak" />
+    <img src="https://streak-stats.demolab.com/?user=Palenhame&theme=tokyonight&hide_border=true" alt="GitHub Streak" />
   </a>
 </div>
 

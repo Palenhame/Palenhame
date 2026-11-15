@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 850 220" width="100%" height="100%">
+  <defs>
+    <style>
+      .font { font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace; font-size: 12px; }
+      .bg { fill: #0d1117; stroke: #30363d; stroke-width: 1; rx: 10px; }
+      .bar { fill: #161b22; stroke: #30363d; stroke-width: 1; }
+      .btn-r { fill: #ff5f56; }
+      .btn-y { fill: #ffbd2e; }
+      .btn-g { fill: #27c93f; }
+      .stat-box { fill: #161b22; stroke: #30363d; stroke-width: 1; rx: 6px; }
+      .t-dim { fill: #8b949e; }
+      .t-main { fill: #e6edf3; }
+      .t-green { fill: #3fb950; font-weight: bold; }
+      .t-cyan { fill: #58a6ff; }
+      .t-purple { fill: #bc8cff; }
+      .t-yellow { fill: #e3b341; }
+      .t-bold { font-weight: bold; fill: #ffffff; }
+    </style>
+  </defs>
+
+  <!-- Window Frame -->
+  <rect width="850" height="220" class="bg" />
+
+  <!-- Window Header Bar -->
+  <path d="M 0 10 C 0 4.48 4.48 0 10 0 L 840 0 C 845.52 0 850 4.48 850 10 L 850 34 L 0 34 Z" class="bar" />
+  <circle cx="20" cy="17" r="6" class="btn-r" />
+  <circle cx="38" cy="17" r="6" class="btn-y" />
+  <circle cx="56" cy="17" r="6" class="btn-g" />
+  <text x="425" y="21" class="font t-dim" text-anchor="middle" font-size="12">telemetry · journalctl -u engineer.service -f</text>
+
+  <!-- Telemetry Metrics Strip -->
+  <g transform="translate(24, 46)">
+    <!-- Metric 1 -->
+    <rect x="0" y="0" width="185" height="42" class="stat-box" />
+    <text x="14" y="17" class="font t-dim" font-size="10">THROUGHPUT</text>
+    <text x="14" y="33" class="font t-cyan" font-size="13" font-weight="bold">1,840 req/s</text>
+
+    <!-- Metric 2 -->
+    <rect x="205" y="0" width="185" height="42" class="stat-box" />
+    <text x="219" y="17" class="font t-dim" font-size="10">P99 LATENCY</text>
+    <text x="219" y="33" class="font t-green" font-size="13" font-weight="bold">2.1 ms</text>
+
+    <!-- Metric 3 -->
+    <rect x="410" y="0" width="185" height="42" class="stat-box" />
+    <text x="424" y="17" class="font t-dim" font-size="10">REDIS HIT-RATIO</text>
+    <text x="424" y="33" class="font t-purple" font-size="13" font-weight="bold">95.4%</text>
+
+    <!-- Metric 4 -->
+    <rect x="615" y="0" width="185" height="42" class="stat-box" />
+    <text x="629" y="17" class="font t-dim" font-size="10">PGX CONN POOL</text>
+    <text x="629" y="33" class="font t-yellow" font-size="13" font-weight="bold">28 / 50 active</text>
+  </g>
+
+  <!-- Journal Stream Logs -->
+  <g class="font" transform="translate(24, 115)">
+    <!-- Log 1 -->
+    <text x="0" y="0">
+      <tspan class="t-dim">[17:49:10] </tspan><tspan class="t-green">[INFO] </tspan><tspan class="t-cyan">worker.go:28 </tspan><tspan class="t-dim">-> </tspan><tspan class="t-main">spawned goroutines=64 worker_id=worker-go-01 status=</tspan><tspan class="t-green">HEALTHY</tspan>
+    </text>
+
+    <!-- Log 2 -->
+    <text x="0" y="22">
+      <tspan class="t-dim">[17:49:12] </tspan><tspan class="t-purple">[CACHE] </tspan><tspan class="t-cyan">cache.go:44 </tspan><tspan class="t-dim">-> </tspan><tspan class="t-main">redis read-through hit_ratio=0.954 lru_evictions=0 memory=128.4MB</tspan>
+    </text>
+
+    <!-- Log 3 -->
+    <text x="0" y="44">
+      <tspan class="t-dim">[17:49:15] </tspan><tspan class="t-yellow">[STORAGE] </tspan><tspan class="t-cyan">storage.go:71 </tspan><tspan class="t-dim">-> </tspan><tspan class="t-main">pgx query_fast exec_time=1.4ms pool_idle=22 status=</tspan><tspan class="t-green">OK</tspan>
+    </text>
+
+    <!-- Log 4 -->
+    <text x="0" y="66">
+      <tspan class="t-dim">[17:49:18] </tspan><tspan class="t-cyan">[INGRESS] </tspan><tspan class="t-main">"GET /api/v1/health HTTP/2" </tspan><tspan class="t-green">200 OK</tspan><tspan class="t-dim"> duration=1.2ms nginx/proxy</tspan><tspan class="t-green"> ●</tspan>
+    </text>
+  </g>
+</svg>

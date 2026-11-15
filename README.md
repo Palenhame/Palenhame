@@ -10,49 +10,21 @@
 
 <br />
 
-### Architecture & Runtime Philosophy
+### Стек и архитектура
 
-```go
-package prod
+- **Языки**: **Python, Go, SQL, Bash**
+- **Бэкенд-разработка**:
+  - **Python**: FastAPI, Django, асинхронное программирование (Asyncio)
+  - **Go**: конкурентность (Goroutines, Channels, ErrGroup), легковесные микросервисы и API
+- **Базы данных и кэш**:
+  - **PostgreSQL**: проектирование схем, оптимизация сложных SQL-запросов и индексов, пулы соединений (pgx)
+  - **Redis**: стратегия read-through кэширования, структуры данных в памяти, очереди/стримы
+- **Инфраструктура и окружение**:
+  - **Docker & Docker Compose**: контейнеризация и изоляция сервисов
+  - **Linux**: работа в терминале, системные демоны (systemd), bash-скрипты, настройка SSH и туннелей
+  - **Git**: контроль версий, ветвление, CI/CD через GitHub Actions
 
-import (
-	"context"
-	"time"
-
-	"golang.org/x/sync/errgroup"
-)
-
-// Engineer: concurrency, fast SQL, Redis read-through & isolated Docker containers
-type Engineer struct {
-	Core    string // Go & Python
-	Cache   Cache  // Redis (LRU / Streams)
-	Storage DB     // PostgreSQL (pgx / partitioning)
-	Runtime string // Docker & Linux cgroups
-}
-
-func (e *Engineer) HandleLoad(ctx context.Context, req Request) (Response, error) {
-	if cached, ok := e.Cache.Get(ctx, req.Key()); ok {
-		return cached, nil
-	}
-
-	g, ctx := errgroup.WithContext(ctx)
-	var res Response
-
-	g.Go(func() error {
-		row, err := e.Storage.QueryFast(ctx, req.SQL())
-		if err != nil {
-			return err
-		}
-		res = row
-		return e.Cache.SetAsync(ctx, req.Key(), row, 5*time.Minute)
-	})
-
-	if err := g.Wait(); err != nil {
-		return Response{}, err
-	}
-	return res, nil
-}
-```
+<br />
 
 <div align="center">
   <picture>
@@ -64,13 +36,23 @@ func (e *Engineer) HandleLoad(ctx context.Context, req Request) (Response, error
 
 <br />
 
+<div align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="./assets/telemetry-dark.svg" />
+    <source media="(prefers-color-scheme: light)" srcset="./assets/telemetry-light.svg" />
+    <img alt="Runtime telemetry and journalctl" src="./assets/telemetry-dark.svg" width="100%" />
+  </picture>
+</div>
+
+<br />
+
 ### Activity Stream
 
 <div align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Palenhame/Palenhame/output/github-contribution-grid-snake-dark.svg" />
-    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/Palenhame/Palenhame/output/github-contribution-grid-snake.svg" />
-    <img alt="GitHub contribution grid snake animation" src="https://raw.githubusercontent.com/Palenhame/Palenhame/output/github-contribution-grid-snake-dark.svg" width="100%" />
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/palenhame/palenhame/output/github-contribution-grid-snake-dark.svg" />
+    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/palenhame/palenhame/output/github-contribution-grid-snake.svg" />
+    <img alt="GitHub contribution grid snake animation" src="https://raw.githubusercontent.com/palenhame/palenhame/output/github-contribution-grid-snake-dark.svg" width="100%" />
   </picture>
 </div>
 
